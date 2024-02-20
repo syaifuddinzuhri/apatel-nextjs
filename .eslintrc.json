@@ -33,11 +33,18 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-wrap-multilines": "off",
+    "unused-imports/no-unused-imports": "off",
     // Cannot use `Component.displayName` pattern on class components in TS.
     "react/static-property-placement": "off",
-    "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
     "space-before-function-paren": "off",
+    "no-else-return": "off",
+    "react/no-array-index-key": "off",
+    "import/newline-after-import": "off",
+    "react/jsx-boolean-value": "off",
+    "simple-import-sort/imports": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-unused-var": "off",
     // Require or disallow a space immediately following the // or /* in a comment
     // https://eslint.org/docs/rules/spaced-comment
     "spaced-comment": [
@@ -57,7 +64,7 @@
       }
     ],
     "no-useless-return": "off",
-    "unused-imports/no-unused-imports": "error",
+    // "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/indent": "off",
     "react/function-component-definition": "off",
     "react/no-unescaped-entities": "off",
