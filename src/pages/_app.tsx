@@ -4,6 +4,9 @@ import "@fontsource/inter/700.css";
 import "@fontsource/inter/900.css";
 import "@fontsource/roboto/700.css";
 import "../styles/carousel.css";
+import "../styles/datepicker.css";
+import "../styles/custom.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

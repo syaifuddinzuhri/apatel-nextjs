@@ -9,6 +9,18 @@ export const currency = (locales: string | string[] = "id-ID", options?: Intl.Nu
   });
 };
 
+export const formatRupiah = (amount: number, isRp: boolean = true): string => {
+  const digits = amount.toString().split("").reverse();
+  let formatted = "";
+  for (let i = 0; i < digits.length; i++) {
+    if (i > 0 && i % 3 === 0) {
+      formatted = "." + formatted;
+    }
+    formatted = digits[i] + formatted;
+  }
+  return isRp ? `Rp${formatted}` : formatted;
+};
+
 export const elipsisText = (text: string, limitChar = 30) => {
   if (text && text.length > limitChar) return `${text.substring(0, limitChar).trim()}...`;
   return text;
@@ -75,6 +87,14 @@ export const formatDefaultDate = (date: Date) => {
   const month = date.getMonth();
   const year = date.getFullYear();
   return `${day} ${getMonthName(month)} ${year}`;
+};
+
+export const formatDate = (date: Date | undefined) => {
+  if (!date) return "";
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Adding 1 to month because getMonth() returns zero-based month
+  const year = date.getFullYear();
+  return `${day < 10 ? "0" + day : day}-${month < 10 ? "0" + month : month}-${year}`;
 };
 
 export const formatDefaultDateShort = (date: Date) => {

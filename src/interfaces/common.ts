@@ -75,8 +75,8 @@ export interface FormError {
 }
 
 export interface PaginationParams {
-  orderby?: string;
-  sortby?: string;
+  orderBy?: string;
+  sortBy?: string;
   page?: number;
   perPage?: number;
 }

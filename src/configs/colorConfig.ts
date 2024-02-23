@@ -20,6 +20,7 @@ const colorConfig = {
   blue: "#3361FF",
   blueLight: "#4D74FF",
   green: "#29CC39",
+  greenLight: "#86b08a",
 };
 
 export default colorConfig;

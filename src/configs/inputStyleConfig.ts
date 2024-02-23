@@ -34,6 +34,29 @@ const baseStyle = definePartsStyle({
 
 const InputConfig = defineMultiStyleConfig({
   baseStyle,
+  sizes: {
+    // Define size variations here
+    sm: {
+      field: {
+        paddingX: 2,
+        paddingY: 1,
+        height: "32px",
+        fontSize: "12px",
+      },
+    },
+    md: {
+      // Default baseStyle already defined
+    },
+    lg: {
+      field: {
+        paddingX: 6,
+        paddingY: 4,
+        height: "48px",
+        fontSize: "18px",
+        borderRadius: 8,
+      },
+    },
+  },
   variants: {
     default: {
       field: {
@@ -43,6 +66,7 @@ const InputConfig = defineMultiStyleConfig({
     },
   },
   defaultProps: {
+    size: "md", // Set default size
     variant: "default",
   },
 });

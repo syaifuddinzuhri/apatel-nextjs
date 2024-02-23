@@ -10,9 +10,9 @@ const DesktopMenu = () => {
     <>
       <Image src={"/images/full-logo.png"} alt="Logo" />
       <Flex display={{ base: "none", md: "flex" }} align="center">
-        <Stack direction="row" spacing={4} align="center">
+        <Flex direction="row" gap={4} align="center">
           <MenuNav isOpen={false} />
-        </Stack>
+        </Flex>
       </Flex>
     </>
   );

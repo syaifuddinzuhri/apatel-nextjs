@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { Button, Divider, IconButton, Link, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { Box, Button, Divider, IconButton, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import {
   MdOutlineAppRegistration,
   MdOutlineInfo,
@@ -9,8 +9,8 @@ import {
   MdPerson2,
   MdQuestionMark,
 } from "react-icons/md";
-import NextLink from "next/link";
 import { getAccessToken } from "@/utils/auth/helpers";
+import { Link } from "@/components/link";
 
 interface IProps {
   isOpen: boolean;
@@ -24,7 +24,7 @@ const MenuNav = ({ isOpen }: IProps) => {
 
   const menus = [
     { label: "Home", link: "/" },
-    { label: "About Us", link: "/about-us" },
+    { label: "About", link: "/about-us" },
     { label: "Partnership", link: "/partnership" },
     { label: "Promo", link: "/promo" },
     { label: "Info", link: "/promo" },
@@ -33,37 +33,33 @@ const MenuNav = ({ isOpen }: IProps) => {
   return (
     <>
       {menus.map((menu: any, i: number) => (
-        <NextLink href={menu.link} passHref key={i}>
-          <Link _hover={{ color: "primary.500" }}>{menu.label}</Link>
-        </NextLink>
+        <Box key={i} _hover={{ color: "primary.500" }}>
+          <Link href={menu.link}>{menu.label}</Link>
+        </Box>
       ))}
       {isOpen && <Divider pt={2} />}
       {!isLoggedIn && (
         <>
-          <NextLink href="/register" passHref>
-            <Button
-              colorScheme="primary"
-              size="xs"
-              w="full"
-              variant="solid"
-              _hover={{ background: "primary.600" }}
-              leftIcon={<MdOutlineAppRegistration />}
-            >
-              Sign Up
-            </Button>
-          </NextLink>
-          <NextLink href="/login" passHref>
-            <Button
-              colorScheme="primary"
-              size="xs"
-              w="full"
-              variant="outline"
-              _hover={{ background: "primary.50" }}
-              leftIcon={<MdOutlineLogin />}
-            >
-              Login
-            </Button>
-          </NextLink>
+          <Button
+            colorScheme="primary"
+            size="xs"
+            w="full"
+            variant="solid"
+            _hover={{ background: "primary.600" }}
+            // leftIcon={<MdOutlineAppRegistration />}
+          >
+            <Link href="/register">Sign Up</Link>
+          </Button>
+          <Button
+            colorScheme="primary"
+            size="xs"
+            w="full"
+            variant="outline"
+            _hover={{ background: "primary.50" }}
+            leftIcon={<MdOutlineLogin />}
+          >
+            <Link href="/login">Login</Link>
+          </Button>
         </>
       )}
       {!isOpen && isLoggedIn && (
@@ -77,9 +73,9 @@ const MenuNav = ({ isOpen }: IProps) => {
             p={2}
           />
           <MenuList>
-            <NextLink href="/profile" passHref>
-              <MenuItem icon={<MdPerson2 />}>Profile</MenuItem>
-            </NextLink>
+            <MenuItem icon={<MdPerson2 />}>
+              <Link href="/profile">Profile</Link>
+            </MenuItem>
             <MenuItem icon={<MdOutlineLogout />}>Logout</MenuItem>
           </MenuList>
         </Menu>
@@ -87,18 +83,16 @@ const MenuNav = ({ isOpen }: IProps) => {
 
       {isOpen && isLoggedIn && (
         <>
-          <NextLink href="/profile" passHref>
-            <Button
-              colorScheme="primary"
-              size="xs"
-              w="full"
-              variant="outline"
-              _hover={{ background: "primary.50" }}
-              leftIcon={<MdPerson2 />}
-            >
-              Profile
-            </Button>
-          </NextLink>
+          <Button
+            colorScheme="primary"
+            size="xs"
+            w="full"
+            variant="outline"
+            _hover={{ background: "primary.50" }}
+            leftIcon={<MdPerson2 />}
+          >
+            <Link href="/profile">Profile</Link>
+          </Button>
           <Button
             colorScheme="primary"
             size="xs"

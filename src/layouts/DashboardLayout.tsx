@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 
 import { useUserStore } from "@/stores/user";
 import Navbar from "./components/Navbar";
+import Footer from "@/components/Footer";
 
 interface IProps {
   children: ReactNode;
@@ -36,9 +37,12 @@ const DashboardLayout: React.FC<IProps> = ({ children }) => {
   useEffect(() => {}, []);
 
   return (
-    <Box minH={"100vh"} transition={"all 0.3s ease"} paddingX={{ base: 6, md: 24 }}>
-      <Navbar />
-      {children}
+    <Box minH={"100vh"} transition={"all 0.3s ease"}>
+      <Box paddingX={{ base: 6, md: 24 }}>
+        <Navbar />
+        {children}
+      </Box>
+      <Footer />
     </Box>
   );
 };

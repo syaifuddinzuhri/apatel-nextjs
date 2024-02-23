@@ -2,6 +2,7 @@ import { IconEyeCloseOutline, IconEyeOutline } from "@/assets/index";
 import { ErrorMessage } from "@/components/form";
 import { LoginValidation } from "@/interfaces/auth";
 import {
+  Box,
   Button,
   Center,
   Flex,
@@ -12,7 +13,6 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Link,
   Radio,
   RadioGroup,
   Stack,
@@ -26,6 +26,7 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { MdArrowBack } from "react-icons/md";
 import NextLink from "next/link";
+import { Link } from "@/components/link";
 
 const Login: FC = () => {
   const toast = useToast();
@@ -148,16 +149,15 @@ const Login: FC = () => {
               <HStack gap={2} justifyContent={"center"}>
                 <Text textStyle={"p"}>Don't have an account yet?&nbsp;</Text>
                 <Text textStyle={"p"} fontWeight={700} textDecor="underline" color="primary.500">
-                  <NextLink href="/register" passHref>
-                    <Link>Sign Up</Link>
-                  </NextLink>
+                  <Link href="/register">Sign Up</Link>
                 </Text>
               </HStack>
-              <NextLink href="/" passHref>
-                <Link display="flex" alignItems="center" gap={2}>
-                  <MdArrowBack /> Back to home
-                </Link>
-              </NextLink>
+              <Link href="/">
+                <Box display="flex" alignItems={"center"} gap={2}>
+                  <MdArrowBack />
+                  Back to home
+                </Box>
+              </Link>
             </Stack>
           </Stack>
         </Stack>

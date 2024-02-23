@@ -2,6 +2,7 @@ import { IconEyeCloseOutline, IconEyeOutline } from "@/assets/index";
 import { ErrorMessage } from "@/components/form";
 import { RegisterValidation } from "@/interfaces/auth";
 import {
+  Box,
   Button,
   Center,
   Flex,
@@ -13,7 +14,6 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Link,
   Radio,
   RadioGroup,
   Stack,
@@ -26,6 +26,7 @@ import type { FC } from "react";
 import { useState } from "react";
 import NextLink from "next/link";
 import { MdArrowBack } from "react-icons/md";
+import { Link } from "@/components/link";
 const Register: FC = () => {
   const toast = useToast();
   const router = useRouter();
@@ -185,17 +186,16 @@ const Register: FC = () => {
               <HStack gap={2} justifyContent={"center"}>
                 <Text textStyle={"p"}>Already have an account?&nbsp;</Text>
                 <Text textStyle={"p"} fontWeight={700} textDecor="underline" color="primary.500">
-                  <NextLink href="/login" passHref>
-                    <Link>Sign In</Link>
-                  </NextLink>
+                  <Link href="/login">Sign In</Link>
                 </Text>
               </HStack>
 
-              <NextLink href="/" passHref>
-                <Link display="flex" alignItems="center" gap={2}>
-                  <MdArrowBack /> Back to home
-                </Link>
-              </NextLink>
+              <Link href="/">
+                <Box display="flex" alignItems={"center"} gap={2}>
+                  <MdArrowBack />
+                  Back to home
+                </Box>
+              </Link>
             </Stack>
           </Stack>
         </Stack>

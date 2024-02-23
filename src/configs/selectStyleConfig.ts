@@ -1,4 +1,5 @@
 import type { ChakraStylesConfig } from "chakra-react-select";
+import colorConfig from "./colorConfig";
 
 const chakraStyles: ChakraStylesConfig = {
   dropdownIndicator: provided => ({
@@ -40,6 +41,10 @@ const chakraStyles: ChakraStylesConfig = {
     color: "#334466",
     cursor: "pointer",
     borderRadius: "16px",
+    ":hover": {
+      color: colorConfig.primary, // Change the color when hovered over
+      background: "#f0f0f0", // Change the background color when hovered over
+    },
   }),
 };
 

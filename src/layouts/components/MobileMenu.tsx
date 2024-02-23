@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CloseButton,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -16,6 +17,7 @@ import {
 import React, { useRef } from "react";
 import { MdClose, MdList, MdListAlt } from "react-icons/md";
 import MenuNav from "./MenuNav";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 interface IProps {
   isOpen: boolean;
@@ -32,9 +34,9 @@ const MobileMenu = () => {
         display={{ base: "flex", md: "none" }}
         ref={btnRef}
         aria-label="Close Menu"
-        colorScheme="primary"
+        colorScheme="secondary"
         variant="outline"
-        icon={<MdList />}
+        icon={<HamburgerIcon />}
         onClick={onOpen}
         size="xl"
         p={1}
@@ -45,15 +47,7 @@ const MobileMenu = () => {
           <DrawerHeader borderBottomWidth="1px">
             <Flex justifyContent="space-between" alignItems="center">
               <Image src={"/images/full-logo.png"} alt="Logo" width={90} />
-              <IconButton
-                aria-label="Close Menu"
-                colorScheme="dark"
-                variant="outline"
-                icon={<MdClose />}
-                onClick={onClose}
-                size="xl"
-                p={1}
-              />
+              <CloseButton onClick={onClose} />
             </Flex>
           </DrawerHeader>
 

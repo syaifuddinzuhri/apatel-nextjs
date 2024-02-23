@@ -1,10 +1,14 @@
 import CarouselBanner from "@/components/home/carousel";
-import React from "react";
+import CardUnitSearch from "@/components/units/CardUnitSearch";
+import UnitTopSection from "@/components/units/UnitTopSection";
+import React, { useEffect } from "react";
 
 const Home = () => {
   return (
     <>
       <CarouselBanner />
+      <CardUnitSearch />
+      <UnitTopSection />
     </>
   );
 };
