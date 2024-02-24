@@ -1,3 +1,4 @@
+import BookingStep from "@/components/home/BookingStep";
 import CarouselBanner from "@/components/home/carousel";
 import CardUnitSearch from "@/components/units/CardUnitSearch";
 import UnitTopSection from "@/components/units/UnitTopSection";
@@ -9,6 +10,7 @@ const Home = () => {
       <CarouselBanner />
       <CardUnitSearch />
       <UnitTopSection />
+      <BookingStep />
     </>
   );
 };

@@ -16,16 +16,18 @@ import React from "react";
 import Rating from "../Rating";
 import { formatRupiah } from "@/utils/formatter";
 import BadgeCustom from "../Badge";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   data: any;
 }
 
 const CardUnit = ({ data }: IProps) => {
+  const router = useRouter();
   const price =
     data?.price_list[0].discount_price !== 0 ? data?.price_list[0].discount_price : data?.price_list[0].original_price;
   return (
-    <Card>
+    <Card onClick={() => router.push(`/units/${data?.slug}`)} cursor="pointer">
       <CardBody>
         <Image
           src={data?.unit_file_thumbnail[0].file_url || ""}

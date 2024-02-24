@@ -5,7 +5,7 @@ import axios from "@/utils/api/callApi";
 
 export const useGetSettingByParam = (param?: string, enabled?: boolean) =>
   useQuery<QueryPropsDetail<any>, Error>({
-    queryKey: ["setting-by-param"],
+    queryKey: [`setting-by-param-${param}`],
     queryFn: () =>
       axios<QueryPropsDetail<any>>({
         method: "get",

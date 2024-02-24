@@ -21,6 +21,8 @@ import { appHead } from "@/constants/app";
 import type { NextAppProps } from "@/interfaces/next";
 import AuthGuard from "@/modules/auth/AuthGuard";
 import Head from "next/head";
+import { LoadScript } from "@react-google-maps/api";
+import getRuntimeEnv from "@/utils/env";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,7 +43,9 @@ const MyApp = ({ Component, pageProps }: NextAppProps): ReactElement => {
           <link rel="icon" href="/images/logo.png" />
         </Head>
         <DefaultSeo {...appHead} />
-        <AuthGuard>{page}</AuthGuard>
+        <LoadScript googleMapsApiKey={getRuntimeEnv("GOOGLE_MAPS_KEY")}>
+          <AuthGuard>{page}</AuthGuard>
+        </LoadScript>
       </QueryClientProvider>
     </ChakraProvider>
   );
